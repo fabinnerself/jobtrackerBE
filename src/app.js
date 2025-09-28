@@ -27,10 +27,19 @@ const app = express();
 // Middlewares básicos
 app.use(helmet());
 app.use(compression());
+
+// app.use(cors({
+//   origin: environment.FRONTEND_URL,
+//   credentials: true
+// }));
+
+const allowedOrigins = environment.FRONTEND_URL.split(',').map(url => url.trim());
+
 app.use(cors({
-  origin: environment.FRONTEND_URL,
+  origin: allowedOrigins,
   credentials: true
 }));
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
