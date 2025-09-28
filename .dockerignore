@@ -1,0 +1,58 @@
+# Archivos y directorios a ignorar en la imagen Docker
+
+# Dependencias
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de entorno
+.env
+.env.local
+.env.production
+.env.development
+
+# Archivos de desarrollo
+.git
+.gitignore
+README.md
+.eslintrc.*
+.prettierrc.*
+nodemon.json
+
+# Archivos de testing
+coverage/
+.nyc_output
+*.test.js
+__tests__/
+
+# Archivos temporales
+*.tmp
+*.temp
+.cache/
+
+# Logs
+logs
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de documentación
+docs/
+*.md
+
+# Archivos de configuración local
+docker-compose.yml
+docker-compose.*.yml
+
+# Uploads temporales
+uploads/
+temp/

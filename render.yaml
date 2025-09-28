@@ -1,0 +1,66 @@
+# Configuración para despliegue en Render
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Servicio web principal
+  - type: web
+    name: jobseeker-api
+    runtime: node
+    plan: free  # Cambiar a 'starter' para plan pagado
+    region: oregon  # Cambiar según tu ubicación
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/v1/health
+    
+    # Variables de entorno (configurar en Render Dashboard)
+    envVars:
+      - key: NODE_ENV
+        value: production
+      
+      - key: PORT
+        value: 3000
+      
+      # MongoDB Atlas URI (configurar en Render Dashboard como variable de entorno)
+      - key: MONGODB_URI
+        value: mongodb+srv://your-username:your-password@your-cluster.mongodb.net/jobseeker?retryWrites=true&w=majority
+      
+      # JWT Secret (se genera automáticamente)
+      - key: JWT_SECRET
+        generateValue: true
+      
+      - key: TZ
+        value: America/La_Paz
+      
+      # CORS Configuration
+      - key: FRONTEND_URL
+        value: https://tu-frontend-app.onrender.com
+      
+      # Rate Limiting
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100
+    
+    # Configuración de disco (para archivos subidos)
+    disk:
+      name: uploads
+      mountPath: /app/uploads
+      sizeGB: 1
+    
+    # Auto-deploy desde GitHub
+    autoDeploy: true
+    
+    # Configuración de scaling (plan pagado)
+    scaling:
+      minInstances: 1
+      maxInstances: 3
+      targetCPUPercent: 70
+      targetMemoryPercent: 80
+
+# Base de datos MongoDB (usar MongoDB Atlas en su lugar)
+# databases:
+#   - name: jobseeker-db
+#     databaseName: jobseeker
+#     plan: free
+#     region: oregon
