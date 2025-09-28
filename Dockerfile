@@ -1,4 +1,4 @@
-e# Usar Node.js 18 Alpine como base (imagen más pequeña)
+# Usar Node.js 18 Alpine como base (imagen más pequeña)
 FROM node:18-alpine AS builder
 
 # Establecer directorio de trabajo
