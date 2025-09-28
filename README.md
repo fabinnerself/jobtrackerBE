@@ -2,6 +2,11 @@
 
 API backend completa para gestión de búsqueda laboral con inteligencia artificial, desarrollada con Node.js, Express y MongoDB.
 
+🔗 Rutas disponibles
+
+Recurso	URL Base: 	https://jobtrackerbe.onrender.com/
+
+
 ## 📋 Características Principales
 
 - ✅ **CRUD completo** para perfiles, aplicaciones y documentos
