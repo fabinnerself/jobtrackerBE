@@ -10,7 +10,7 @@ services:
     ports:
       - "8000:80"
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - JWT_SECRET=tu-secreto-super-seguro-aqui-minimo-32-caracteres-para-jwt
       - PORT=80
       - TZ=America/La_Paz

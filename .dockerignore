@@ -6,8 +6,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Archivos de entorno
-.env
+# Archivos de entorno (excepto .env para desarrollo local)
 .env.local
 .env.production
 .env.development
